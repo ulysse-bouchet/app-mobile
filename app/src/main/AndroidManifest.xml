@@ -9,11 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".SearchActivity" />
-        <activity android:name=".MatchesActivity" />
-        <activity android:name=".LoadingActivity">
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="sensorPortrait"
+            />
+        <activity
+            android:name=".LoadingActivity"
+            android:screenOrientation="sensorPortrait"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -18,8 +18,9 @@ public class LoadingActivity extends AppCompatActivity {
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
-                Intent i = new Intent(LoadingActivity.this, HomeActivity.class);
+                Intent i = new Intent(LoadingActivity.this, MainActivity.class);
                 startActivity(i);
+                finish();
             }
         }, 1500);
 

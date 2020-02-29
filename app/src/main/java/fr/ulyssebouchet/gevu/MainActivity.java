@@ -5,12 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.SurfaceControl;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
+import fr.ulyssebouchet.gevu.fragments.HomeFragment;
+import fr.ulyssebouchet.gevu.fragments.MatchesFragment;
+import fr.ulyssebouchet.gevu.fragments.SearchFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,27 +26,24 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         BottomNavigationView bottomNavigationMenu = findViewById(R.id.bottom_navigation);
+        openFragment(new HomeFragment());
 
         bottomNavigationMenu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Intent i;
                 switch (item.getItemId()) {
                     case R.id.menu_item_home:
-                        openFragment(HomeFragment.Companion.newInstance());
-                        i = new Intent(HomeActivity.this, HomeActivity.class);
+                        openFragment(new HomeFragment());
                         break;
                     case R.id.menu_item_search:
-                        i = new Intent(HomeActivity.this, SearchActivity.class);
+                        openFragment(new SearchFragment());
                         break;
                     case R.id.menu_item_matches:
-                        i = new Intent(HomeActivity.this, MatchesActivity.class);
+                        openFragment(new MatchesFragment());
                         break;
                     default:
-                        i = new Intent(HomeActivity.this, HomeActivity.class);
                         break;
                 }
-                startActivity(i);
                 return true;
             }
         });
@@ -51,5 +54,24 @@ public class MainActivity extends AppCompatActivity {
         transaction.replace(R.id.container, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
+    }
+
+    boolean exit = false;
+    Timer t = new Timer();
+    @Override
+    public void onBackPressed() {
+        if (!exit) {
+            Toast.makeText(MainActivity.this,
+                    "Appuyez de nouveau pour quitter", Toast.LENGTH_SHORT).show();
+            exit = true;
+            t.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    exit = false;
+                }
+            }, 2000);
+        } else
+            finish();
+        //super.onBackPressed();
     }
 }
