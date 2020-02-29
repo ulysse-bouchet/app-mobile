@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Gévu</string>
+    <string name="menu_item_home">Accueil</string>
+    <string name="menu_items_search">Rechercher</string>
+    <string name="menu_item_matches">Mes matchs</string>
+</resources>
