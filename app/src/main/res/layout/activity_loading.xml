@@ -8,29 +8,58 @@
     android:background="@color/colorPrimary">
 
     <TextView
-        android:id="@+id/main_text_appname"
+        android:id="@+id/loading_text_appname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/app_name"
         android:textSize="50sp"
         android:textColor="@color/colorLight"
-        android:textStyle="bold"
+        android:fontFamily="@font/bungee"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginBottom="25dp"
-        android:fontFamily="@font/bungee"
+        android:layout_marginBottom="50dp"
         />
 
     <ProgressBar
+        android:id="@+id/loading_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/main_text_appname"
-        app:layout_constraintLeft_toLeftOf="@id/main_text_appname"
-        app:layout_constraintRight_toRightOf="@id/main_text_appname"
-        android:layout_marginTop="25dp"
+        app:layout_constraintTop_toBottomOf="@id/loading_text_appname"
+        app:layout_constraintLeft_toLeftOf="@id/loading_text_appname"
+        app:layout_constraintRight_toRightOf="@id/loading_text_appname"
         android:theme="@style/AppTheme.WhiteAccent"
+        />
+
+    <TextView
+        android:id="@+id/loading_text_matches"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/loading_matches"
+        android:textSize="12sp"
+        android:textColor="@color/colorLight"
+        android:fontFamily="@font/bungee"
+        android:gravity="center"
+        android:layout_marginTop="25dp"
+        app:layout_constraintTop_toBottomOf="@id/loading_bar"
+        app:layout_constraintLeft_toLeftOf="@id/loading_bar"
+        app:layout_constraintRight_toRightOf="@id/loading_bar"
+        />
+
+    <TextView
+        android:id="@+id/loading_text_saved_datas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/loading_saved_datas"
+        android:textSize="12sp"
+        android:textColor="@color/colorLight"
+        android:fontFamily="@font/bungee"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@id/loading_text_matches"
+        app:layout_constraintLeft_toLeftOf="@id/loading_text_matches"
+        app:layout_constraintRight_toRightOf="@id/loading_text_matches"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
