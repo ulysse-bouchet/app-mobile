@@ -30,7 +30,7 @@ public class FootballDataAPI {
     public static int getMatchDay(int leagueID) throws Exception {
         Request request = new Request.Builder()
                 .url("https://api.football-data.org/v2/competitions/" + leagueID)
-                .header("X-Auth-Token", "78ebbde6f7f042ccb1b06e1757e5735b")
+                .header("X-Auth-Token", API_TOKEN)
                 .build();
         try (Response response = client.newCall(request).execute()) {
             if(!response.isSuccessful()) throw new RuntimeException();
@@ -44,14 +44,12 @@ public class FootballDataAPI {
         Request request = new Request.Builder()
                 .url("https://api.football-data.org/v2/competitions/" + leagueID
                         + "/matches?matchday=" + getMatchDay(leagueID))
-                .header("X-Auth-Token", "78ebbde6f7f042ccb1b06e1757e5735b")
+                .header("X-Auth-Token", API_TOKEN)
                 .build();
         try (Response response = client.newCall(request).execute()) {
             if(!response.isSuccessful()) throw new Exception();
 
-            String rep = response.body().string();
-            JSONObject jsonResponse = new JSONObject(rep);
-            System.out.println(rep);
+            JSONObject jsonResponse = new JSONObject(response.body().string());
             JSONArray jsonMatches = jsonResponse.getJSONArray("matches");
 
             List<Match> matches = new ArrayList<>();

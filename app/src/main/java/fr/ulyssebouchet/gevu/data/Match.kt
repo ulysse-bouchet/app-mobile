@@ -1,6 +1,5 @@
 package fr.ulyssebouchet.gevu.data
 
-
 class Match (private var homeTeam : String, private var awayTeam : String) {
 
     override fun toString(): String {

@@ -16,8 +16,10 @@ class HomeFragment(private var matches: List<Match>) : Fragment() {
         val t: TextView = lyt.findViewById(R.id.home_text)
         val s = StringBuilder()
 
-        for (m in matches) s.append(m)
-            t.text = s.toString()
+        for (m in matches)
+            s.append(m)
+
+        t.text = s.toString()
 
         return lyt
     }

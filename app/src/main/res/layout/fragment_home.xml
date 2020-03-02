@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/home_text"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="HOME"
-        android:fontFamily="@font/bungee"
-        android:textColor="@color/colorPrimary"
-        android:textSize="30sp"
-        android:gravity="center"
-        />
-
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/home_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="HOME"
+            android:fontFamily="@font/bungee"
+            android:textColor="@color/colorPrimary"
+            android:textSize="30sp"
+            android:gravity="center"
+            />
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
