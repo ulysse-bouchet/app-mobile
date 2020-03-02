@@ -13,8 +13,10 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -30,23 +32,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent intent = getIntent();
 
-        int nbMatches = intent.getIntExtra("nbMatches", -1);
-        final List<Match> matches = new LinkedList<>();
-        for (int i = 0; i < nbMatches; ++i) {
-            matches.add(Match.Companion.getMatch(intent.getStringExtra("Match " + i)));
-        }
+        final Map<String, List<Match>> leagues = new HashMap<>();
+
+        leagues.put("Ligue 1", getMatches("L1"));
+        leagues.put("Bundesliga", getMatches("BUNDES"));
+        leagues.put("Liga", getMatches("LIGA"));
+        leagues.put("Premier League", getMatches("PL"));
+        leagues.put("Serie A", getMatches("SERIA"));
 
         BottomNavigationView bottomNavigationMenu = findViewById(R.id.bottom_navigation);
-        openFragment(new HomeFragment(matches));
+        openFragment(new HomeFragment(leagues));
 
         bottomNavigationMenu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.menu_item_home:
-                        openFragment(new HomeFragment(matches));
+                        openFragment(new HomeFragment(leagues));
                         break;
                     case R.id.menu_item_search:
                         openFragment(new SearchFragment());
@@ -60,6 +63,17 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
+
+    private List<Match> getMatches(String league) {
+        Intent intent = getIntent();
+
+        int nbMatches = intent.getIntExtra(league + "_NB", -1);
+        final List<Match> matches = new LinkedList<>();
+        for (int i = 0; i < nbMatches; ++i) {
+            matches.add(Match.Companion.getMatch(intent.getStringExtra(league + "_MATCH_" + i)));
+        }
+        return matches;
     }
 
     private void openFragment(Fragment fragment) {
