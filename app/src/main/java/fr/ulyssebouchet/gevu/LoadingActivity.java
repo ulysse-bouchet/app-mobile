@@ -26,33 +26,43 @@ public class LoadingActivity extends AppCompatActivity {
                 final Intent intent = new Intent(LoadingActivity.this, MainActivity.class);
 
                 try {
-                    List<Match> matches = FootballDataAPI.getMatches(FootballDataAPI.ID_LIGUE1);
-                    intent.putExtra("L1_NB", matches.size());
-                    for (int i = 0; i < matches.size(); ++i)
-                        intent.putExtra("L1_MATCH_" + i, matches.get(i).toString());
-
-                    matches = FootballDataAPI.getMatches(FootballDataAPI.ID_BUNDESLIGA);
-                    intent.putExtra("BUNDES_NB", matches.size());
-                    for (int i = 0; i < matches.size(); ++i){
-                        intent.putExtra("BUNDES_MATCH_" + i, matches.get(i).toString());
+                    List<Match> matches = FootballDataAPI.getMatches(FootballDataAPI.ID_LIGUE1, FootballDataAPI.getMatchDay(FootballDataAPI.ID_LIGUE1));
+                    if(matches != null) {
+                        intent.putExtra("L1_NB", matches.size());
+                        for (int i = 0; i < matches.size(); ++i)
+                            intent.putExtra("L1_MATCH_" + i, matches.get(i).toString());
                     }
 
-                    matches = FootballDataAPI.getMatches(FootballDataAPI.ID_LIGA);
-                    intent.putExtra("LIGA_NB", matches.size());
-                    for (int i = 0; i < matches.size(); ++i){
-                        intent.putExtra("LIGA_MATCH_" + i, matches.get(i).toString());
+                    matches = FootballDataAPI.getMatches(FootballDataAPI.ID_BUNDESLIGA, FootballDataAPI.getMatchDay(FootballDataAPI.ID_BUNDESLIGA));
+                    if(matches != null) {
+                        intent.putExtra("BUNDES_NB", matches.size());
+                        for (int i = 0; i < matches.size(); ++i) {
+                            intent.putExtra("BUNDES_MATCH_" + i, matches.get(i).toString());
+                        }
                     }
 
-                    matches = FootballDataAPI.getMatches(FootballDataAPI.ID_PL);
-                    intent.putExtra("PL_NB", matches.size());
-                    for (int i = 0; i < matches.size(); ++i){
-                        intent.putExtra("PL_MATCH_" + i, matches.get(i).toString());
+                    matches = FootballDataAPI.getMatches(FootballDataAPI.ID_LIGA, FootballDataAPI.getMatchDay(FootballDataAPI.ID_LIGA));
+                    if(matches != null) {
+                        intent.putExtra("LIGA_NB", matches.size());
+                        for (int i = 0; i < matches.size(); ++i) {
+                            intent.putExtra("LIGA_MATCH_" + i, matches.get(i).toString());
+                        }
                     }
 
-                    matches = FootballDataAPI.getMatches(FootballDataAPI.ID_SERIE_A);
-                    intent.putExtra("SERIA_NB", matches.size());
-                    for (int i = 0; i < matches.size(); ++i){
-                        intent.putExtra("SERIA_MATCH_" + i, matches.get(i).toString());
+                    matches = FootballDataAPI.getMatches(FootballDataAPI.ID_PL, FootballDataAPI.getMatchDay(FootballDataAPI.ID_PL));
+                    if(matches != null) {
+                        intent.putExtra("PL_NB", matches.size());
+                        for (int i = 0; i < matches.size(); ++i) {
+                            intent.putExtra("PL_MATCH_" + i, matches.get(i).toString());
+                        }
+                    }
+
+                    matches = FootballDataAPI.getMatches(FootballDataAPI.ID_SERIE_A, FootballDataAPI.getMatchDay(FootballDataAPI.ID_SERIE_A));
+                    if(matches != null) {
+                        intent.putExtra("SERIA_NB", matches.size());
+                        for (int i = 0; i < matches.size(); ++i) {
+                            intent.putExtra("SERIA_MATCH_" + i, matches.get(i).toString());
+                        }
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
