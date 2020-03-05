@@ -1,4 +1,4 @@
-package fr.ulyssebouchet.gevu;
+package fr.ulyssebouchet.gevu.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,7 +8,6 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -20,6 +19,7 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import fr.ulyssebouchet.gevu.R;
 import fr.ulyssebouchet.gevu.data.Match;
 import fr.ulyssebouchet.gevu.fragments.HomeFragment;
 import fr.ulyssebouchet.gevu.fragments.MatchesFragment;

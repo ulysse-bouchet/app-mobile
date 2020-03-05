@@ -15,6 +15,8 @@ public class FootballDataAPI {
     private static final String API_TOKEN_2 = "1f217007d7cf4d73a08c8c5e878b0509";
     private static final String API_TOKEN_3 = "ed69af25a8284535a5aa750f2ee6fb33";
     private static final String API_TOKEN_4 = "6e58bc6cabaa4f7aac268814f7420d09";
+    private static final String API_TOKEN_5 = "51ef7ab393234cd59095ffdb053ac98b";
+
     public static final int ID_LIGUE1 = 2015;
     public static final int ID_BUNDESLIGA = 2002;
     public static final int ID_LIGA = 2014;
@@ -25,11 +27,12 @@ public class FootballDataAPI {
 
     private static int cptToken = 0;
     private static String getToken() {
-        switch (cptToken++ % 4) {
+        switch (cptToken++ % 5) {
             case 0: return API_TOKEN_1;
             case 1: return API_TOKEN_2;
             case 2: return API_TOKEN_3;
             case 3: return API_TOKEN_4;
+            case 4: return API_TOKEN_5;
             default: return API_TOKEN_1;
         }
     }

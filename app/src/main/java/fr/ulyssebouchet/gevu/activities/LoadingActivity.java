@@ -1,15 +1,13 @@
-package fr.ulyssebouchet.gevu;
+package fr.ulyssebouchet.gevu.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
+import fr.ulyssebouchet.gevu.R;
 import fr.ulyssebouchet.gevu.data.FootballDataAPI;
 import fr.ulyssebouchet.gevu.data.Match;
 
