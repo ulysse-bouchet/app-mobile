@@ -13,7 +13,6 @@ import fr.ulyssebouchet.gevu.activities.AddMatchActivity
 import fr.ulyssebouchet.gevu.activities.MainActivity
 import fr.ulyssebouchet.gevu.data.Match
 
-
 class HomeFragment(private var leagues: Map<String, List<Match>>) : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val fragment: View = inflater.inflate(R.layout.fragment_home, container, false)
@@ -37,18 +36,13 @@ class HomeFragment(private var leagues: Map<String, List<Match>>) : Fragment() {
 
                 layout.setOnClickListener(View.OnClickListener {
                     val intent = Intent(context, AddMatchActivity::class.java)
-                    intent.putExtra("match", match.getHomeTeam())
+                    intent.putExtra("match", match.toString())
                     startActivity(intent)
                 })
 
                 insertPoint.addView(layout, insertPoint.childCount)
             }
         }
-
-
-
-
-
 
         return fragment
     }

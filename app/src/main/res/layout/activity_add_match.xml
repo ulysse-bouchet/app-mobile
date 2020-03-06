@@ -6,8 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".activities.AddMatchActivity">
 
-    <TextView
-        android:id="@+id/text_test"
-        android:layout_height="wrap_content" android:layout_width="wrap_content" />
+    <LinearLayout
+        android:id="@+id/match_form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_retour"
+            android:background="@drawable/back_icon"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="15sp"
+            />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

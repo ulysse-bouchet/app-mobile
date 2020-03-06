@@ -3,7 +3,7 @@
     android:id="@+id/league_name"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="wrap_content"
-    android:text="Ligue 1"
+    android:text=""
     android:gravity="center"
     android:textSize="20sp"
     android:fontFamily="@font/bungee"
