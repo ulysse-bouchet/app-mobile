@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.os.Bundle;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -30,6 +31,19 @@ public class AddMatchActivity extends AppCompatActivity {
         ((TextView) layout.findViewById(R.id.away_team)).setText(match.getAwayTeam());
         ((TextView) layout.findViewById(R.id.date)).setText(match.getDate());
 
-        insertPoint.addView(layout, insertPoint.getChildCount());
+        insertPoint.addView(layout, 1);
+
+        findViewById(R.id.btn_return_icon).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        findViewById(R.id.btn_return).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 }

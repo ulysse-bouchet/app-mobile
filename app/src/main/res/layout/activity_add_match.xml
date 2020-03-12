@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.AddMatchActivity">
+    tools:context=".activities.AddMatchActivity"
+    android:padding="16dp"
+    android:background="@color/colorLight">
 
     <LinearLayout
         android:id="@+id/match_form"
@@ -17,15 +19,72 @@
         app:layout_constraintBottom_toBottomOf="parent"
         >
 
-        <Button
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/btn_return_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/back_icon"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:contentDescription="@string/btn_retour"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <TextView
+                android:id="@+id/btn_return"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_retour"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="15sp"
+                android:gravity="center"
+                app:layout_constraintLeft_toRightOf="@id/btn_return_icon"
+                app:layout_constraintTop_toTopOf="@id/btn_return_icon"
+                app:layout_constraintBottom_toBottomOf="@id/btn_return_icon"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/btn_retour"
-            android:background="@drawable/back_icon"
-            android:backgroundTint="@color/colorPrimaryDark"
+            android:labelFor="@id/input_anecdote"
+            android:layout_marginTop="25dp"
+            android:text="@string/anecdote"
+            android:fontFamily="@font/bungee"
             android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"/>
+
+        <EditText
+            android:id="@+id/input_anecdote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="Racontez une anecdote à propos du match"
+            android:inputType="textMultiLine"
+            android:lines="5"
+            android:minLines="1"
+            android:gravity="top|start"
+            android:scrollbars="vertical"
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/bungee"
+            android:backgroundTint="@color/colorPrimary"
+            android:textCursorDrawable="@null"
             android:textSize="15sp"
             />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/input_anecdote"
+            android:layout_marginTop="25dp"
+            android:text="@string/souvenir"
+            android:fontFamily="@font/bungee"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"/>
 
     </LinearLayout>
 

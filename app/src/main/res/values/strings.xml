@@ -6,4 +6,6 @@
     <string name="menu_items_search">Rechercher</string>
     <string name="menu_item_matches">Mes matchs</string>
     <string name="btn_retour">Retour</string>
+    <string name="anecdote">Anecdote</string>
+    <string name="souvenir">Souvenir</string>
 </resources>
