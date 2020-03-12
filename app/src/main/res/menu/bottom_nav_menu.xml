@@ -5,11 +5,13 @@
         android:title="@string/menu_item_home"
         android:icon="@drawable/menu_item_home_icon"
         />
+    <!--
     <item
         android:id="@+id/menu_item_search"
         android:title="@string/menu_items_search"
         android:icon="@drawable/menu_item_search_icon"
         />
+    -->
     <item
         android:id="@+id/menu_item_matches"
         android:title="@string/menu_item_matches"

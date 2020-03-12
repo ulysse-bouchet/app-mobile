@@ -73,6 +73,7 @@ public class FootballDataAPI {
                 if(status.equals("POSTPONED") || status.equals("SCHEDULED"))
                     continue;
 
+                int id = jsonMatch.getJSONObject("homeTeam").getInt("id");
                 String homeTeam = jsonMatch.getJSONObject("homeTeam").getString("name");
                 String awayTeam = jsonMatch.getJSONObject("awayTeam").getString("name");
 
@@ -82,7 +83,7 @@ public class FootballDataAPI {
 
                 String date = jsonMatch.getString("utcDate");
 
-                matches.add(new Match(homeTeam, awayTeam, homeTeamGoals, awayTeamGoals, date));
+                matches.add(new Match(id, homeTeam, awayTeam, homeTeamGoals, awayTeamGoals, date));
             }
             return matches;
         }
@@ -111,6 +112,7 @@ public class FootballDataAPI {
                 if(status.equals("POSTPONED") || status.equals("SCHEDULED"))
                     continue;
 
+                int id = jsonMatch.getJSONObject("homeTeam").getInt("id");
                 String homeTeam = jsonMatch.getJSONObject("homeTeam").getString("name");
                 String awayTeam = jsonMatch.getJSONObject("awayTeam").getString("name");
 
@@ -120,7 +122,7 @@ public class FootballDataAPI {
 
                 String date = jsonMatch.getString("utcDate");
 
-                matches.add(new Match(homeTeam, awayTeam, homeTeamGoals, awayTeamGoals, date));
+                matches.add(new Match(id, homeTeam, awayTeam, homeTeamGoals, awayTeamGoals, date));
                 atleastOneMatch = true;
             }
             if (!atleastOneMatch)

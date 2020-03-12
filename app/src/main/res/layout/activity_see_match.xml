@@ -13,7 +13,7 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/match_form"
+            android:id="@+id/see_match"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -57,84 +57,28 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:labelFor="@id/input_anecdote"
-                android:layout_marginTop="25dp"
-                android:text="@string/anecdote"
-                android:fontFamily="@font/bungee"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="20sp"/>
-
-            <EditText
-                android:id="@+id/input_anecdote"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:autofillHints="Racontez une anecdote à propos du match"
-                android:inputType="textMultiLine"
-                android:lines="5"
-                android:minLines="1"
-                android:gravity="top|start"
-                android:scrollbars="vertical"
-                android:textColor="@color/colorPrimary"
-                android:fontFamily="@font/bungee"
-                android:background="@drawable/rounded_rectangle"
-                android:backgroundTint="@color/colorPrimary"
-                android:textCursorDrawable="@null"
-                android:textSize="15sp"
-                android:padding="16dp"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:labelFor="@id/input_anecdote"
-                android:layout_marginTop="25dp"
-                android:text="@string/souvenir"
-                android:fontFamily="@font/bungee"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="20sp"
-                />
-
             <ImageView
-                android:id="@+id/selected_image"
+                android:id="@+id/souvenir_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
                 android:layout_gravity="center_horizontal"
                 android:contentDescription="@string/image_souvenir"
                 android:background="@drawable/rounded_rectangle"
                 android:backgroundTint="@color/colorPrimary"
-                android:padding="6dp"
-                android:maxHeight="100dp"
+                android:padding="24dp"
+                android:maxHeight="500dp"
                 android:adjustViewBounds="true"
                 />
 
-            <Button
-                android:id="@+id/btn_select_image"
+            <TextView
+                android:id="@+id/txt_anecdote"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:padding="8dp"
-                android:background="@drawable/rounded_rectangle"
-                android:backgroundTint="@color/colorPrimary"
-                android:text="@string/select_image"
                 android:textColor="@color/colorPrimary"
-                android:textSize="13sp"
                 android:fontFamily="@font/bungee"
-                />
-
-            <Button
-                android:id="@+id/btn_save"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:background="@drawable/rounded_rectangle_full"
-                android:backgroundTint="@color/colorPrimaryDark"
-                android:text="@string/save_match"
-                android:textColor="@color/colorLight"
-                android:textSize="20sp"
-                android:fontFamily="@font/bungee"
+                android:textSize="15sp"
                 />
 
         </LinearLayout>

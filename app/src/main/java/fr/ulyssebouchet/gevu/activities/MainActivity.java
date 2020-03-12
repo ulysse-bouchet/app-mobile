@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import fr.ulyssebouchet.gevu.R;
+import fr.ulyssebouchet.gevu.data.AppDatabase;
 import fr.ulyssebouchet.gevu.data.Match;
 import fr.ulyssebouchet.gevu.fragments.HomeFragment;
 import fr.ulyssebouchet.gevu.fragments.MatchesFragment;
@@ -51,11 +53,29 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.menu_item_home:
                         openFragment(new HomeFragment(leagues));
                         break;
+                    /*
                     case R.id.menu_item_search:
                         openFragment(new SearchFragment());
                         break;
+                    */
                     case R.id.menu_item_matches:
-                        openFragment(new MatchesFragment());
+                        final List<Match> saved = new LinkedList<>();
+                        Thread load = new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                AppDatabase db = Room.databaseBuilder(getApplicationContext(),
+                                        AppDatabase.class, "database-name").build();
+                                List<Match> matches = db.MatchDao().getAll();
+                                saved.addAll(matches);
+                            }
+                        });
+                        load.start();
+                        try {
+                            load.join();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        openFragment(new MatchesFragment(saved));
                         break;
                     default:
                         break;

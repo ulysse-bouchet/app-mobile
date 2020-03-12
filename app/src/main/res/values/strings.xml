@@ -8,4 +8,8 @@
     <string name="btn_retour">Retour</string>
     <string name="anecdote">Anecdote</string>
     <string name="souvenir">Souvenir</string>
+    <string name="select_image">Sélectionner une image souvenir</string>
+    <string name="image_souvenir">image souvenir</string>
+    <string name="save_match">Sauvegarder ce match</string>
+    <string name="saved_matches">Matches Sauvegardés</string>
 </resources>

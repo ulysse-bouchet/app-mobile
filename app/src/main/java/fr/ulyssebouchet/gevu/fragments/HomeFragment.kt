@@ -27,12 +27,12 @@ class HomeFragment(private var leagues: Map<String, List<Match>>) : Fragment() {
             for (match in league.value) {
                 val layout: ConstraintLayout = inflater.inflate(R.layout.match, container, false) as ConstraintLayout
 
-                val score : String = match.getHomeTeamGoals().toString() + " - " + match.getAwayTeamGoals().toString()
+                val score : String = match.homeTeamGoals.toString() + " - " + match.awayTeamGoals.toString()
 
-                layout.findViewById<TextView>(R.id.home_team).text = match.getHomeTeam()
+                layout.findViewById<TextView>(R.id.home_team).text = match.homeTeam
                 layout.findViewById<TextView>(R.id.score).text = score
-                layout.findViewById<TextView>(R.id.away_team).text = match.getAwayTeam()
-                layout.findViewById<TextView>(R.id.date).text = match.getDate()
+                layout.findViewById<TextView>(R.id.away_team).text = match.awayTeam
+                layout.findViewById<TextView>(R.id.date).text = match.date
 
                 layout.setOnClickListener(View.OnClickListener {
                     val intent = Intent(context, AddMatchActivity::class.java)
