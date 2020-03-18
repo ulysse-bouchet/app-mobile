@@ -66,8 +66,7 @@ public class SeeMatchActivity extends AppCompatActivity {
 
     public static final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 123;
 
-    public boolean checkPermissionREAD_EXTERNAL_STORAGE(
-            final Context context) {
+    public boolean checkPermissionREAD_EXTERNAL_STORAGE(final Context context) {
         int currentAPIVersion = Build.VERSION.SDK_INT;
         if (currentAPIVersion >= android.os.Build.VERSION_CODES.M) {
             if (ContextCompat.checkSelfPermission(context,
@@ -75,7 +74,6 @@ public class SeeMatchActivity extends AppCompatActivity {
                 if (ActivityCompat.shouldShowRequestPermissionRationale((Activity) context,
                         Manifest.permission.READ_EXTERNAL_STORAGE)) {
                     showDialog("External storage", context, Manifest.permission.READ_EXTERNAL_STORAGE);
-
                 } else {
                     ActivityCompat.requestPermissions((Activity) context,
                                     new String[] { Manifest.permission.READ_EXTERNAL_STORAGE },
